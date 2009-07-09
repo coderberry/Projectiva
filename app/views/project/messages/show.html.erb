@@ -1,0 +1,21 @@
+<h3><%= @message.title %></h3>
+
+<p style="margin-top: 10px;">
+  <%= textilize(@message.body) %>
+</p>
+
+<fieldset style="border: 1px solid #d0d0d0; background-color: #FDF5F8;">
+  <legend>Comments</legend>
+<% @message.comments.each do |comment| %>
+  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 10px;">
+    <tr>
+      <td valign="top" align="center" width="65"><%= gravatar_for comment.person %></td>
+      <td valign="top" align="left">
+        <div style="font-family: Arial; background-color: #CBE4F4; font-size: 0.8em; font-weight: bold; padding: 3px;"><%= comment.person.full_name %> wrote on <%= comment.created_at.strftime("%b %d, %Y at %I:%M %p") %></div>
+        <div style="font-family: Arial; font-size: 0.8em; margin-top: 5px;"><%= h comment.body %></div>
+      </td>
+    </tr>
+  </table>
+<% end %>
+<%= render :partial => "new_comment_form", :locals => { :message => @message } %>
+</fieldset>

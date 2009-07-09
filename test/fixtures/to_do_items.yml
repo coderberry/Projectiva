@@ -1,0 +1,42 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: to_do_items
+#
+#  id                     :integer         not null, primary key
+#  account_id             :integer
+#  to_do_list_id          :integer
+#  created_by_id          :integer
+#  description            :string(255)
+#  is_complete            :boolean
+#  date_time_completed    :datetime
+#  responsible_company_id :integer         default(0)
+#  responsible_person_id  :integer         default(0)
+#  position               :integer         default(0)
+#  created_at             :datetime
+#  updated_at             :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  to_do_list_id: 1
+  created_by_id: 1
+  description: MyString
+  is_complete: false
+  date_time_completed: 2008-06-28 01:13:48
+  responsible_company_id: 1
+  responsible_person_id: 1
+  position: 1
+
+two:
+  account_id: 1
+  to_do_list_id: 1
+  created_by_id: 1
+  description: MyString
+  is_complete: false
+  date_time_completed: 2008-06-28 01:13:48
+  responsible_company_id: 1
+  responsible_person_id: 1
+  position: 1

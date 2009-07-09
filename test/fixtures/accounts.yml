@@ -1,0 +1,44 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: accounts
+#
+#  id                  :integer         not null, primary key
+#  company             :string(55)
+#  timezone            :string(15)      default("MST")
+#  sub_domain          :string(30)
+#  domain              :string(30)      default("taskb.us")
+#  i_agree             :boolean
+#  logo_id             :integer
+#  site_name           :string(55)
+#  email_notifications :boolean         default(TRUE)
+#  newsletter          :boolean         default(TRUE)
+#  created_at          :datetime
+#  updated_at          :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  company: MyString
+  timezone: MyString
+  sub_domain: MyString
+  domain: MyString
+  i_agree: false
+  logo_id: 1
+  site_name: MyString
+  email_notifications: false
+  newsletter: false
+  person_id: 1
+
+two:
+  company: MyString
+  timezone: MyString
+  sub_domain: MyString
+  domain: MyString
+  i_agree: false
+  logo_id: 1
+  site_name: MyString
+  email_notifications: false
+  newsletter: false
+  person_id: 1

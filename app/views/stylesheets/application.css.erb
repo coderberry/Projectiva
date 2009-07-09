@@ -1,0 +1,318 @@
+/* General Styles ==================== */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 75%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #<%= @color_schemes['Background'] %>;
+}
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	padding: 0;
+}
+h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	font-size: 1.2em;
+	margin-top: 10px;
+}
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  font-size: 0.9em;
+  border-bottom: 1px solid #000;
+  margin-bottom: 3px;
+  padding-bottom: 2px;
+}
+h6 {
+  width: 120px;
+  text-align: right;
+  font-weight: normal;
+  color: #7D6666;
+  border-bottom: 1px solid #7D6666;
+  margin-top: 10px;
+}
+p {
+	font-size: 0.9em;
+	line-height: 1.2em;
+}
+table.layout {
+	font-size: 1.2em;
+}
+.float_left {
+	float: left;
+}
+.float_right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+div.gray_section_header {
+	background-color: #E9E9E9;
+	margin-top: 10px;
+	padding: 2px 5px;
+}
+div.gray_section_header h3 {
+	margin: 0;
+	padding: 0;
+}
+div.gray_section_header a {
+	color: #333333;
+}
+
+/* Sub Navigation ===================== */
+
+div.sub_nav {
+	background-color: #<%= @color_schemes['Main Navigation Background'] %>;
+	padding: 8px 3px;
+}
+div.sub_nav h2 {
+	font-size: 1.2em !important;
+	font-family: Arial, Helvetica, sans-serif;
+}
+div.sub_nav ul {
+	margin: 0;
+	padding: 0;
+}
+div.sub_nav ul li {
+	list-style: none;
+	display: inline;
+}
+div.sub_nav ul li a {
+	background-color: #<%= @color_schemes['Main Navigation Background'] %>;
+	color: #<%= @color_schemes['Main Navigation Links'] %>;
+	margin-left: 10px;
+	padding-right: 10px;
+	font-size: .8em;
+	border-right: 1px solid #<%= @color_schemes['Main Navigation Foreground'] %>;
+}
+div.sub_nav ul li a.active {
+	font-weight: bold;
+	color: #<%= @color_schemes['Main Navigation Foreground'] %>;
+	text-decoration: none;
+}
+
+/* Milestones =========================== */
+div.milestone {
+  border-bottom: 1px dashed #d0d0d0;
+}
+div.milestone p.header {
+  font-weight: bold;
+  color: #CC995D;
+}
+div.milestone p.details a {
+  color: #ff0000;
+}
+
+/* Tips ================================= */
+div.tip h4 {
+	background-color: #EDF3FE;
+	padding: 4px;
+	margin: 0 0 5px 0;
+	border-right: 2px solid #CCCCCC;
+}
+div.tip p {
+	color: #363636;
+}
+
+
+/* Flash Divs =========================== */
+div.notice {
+	background-color: #F0FAA6;
+	text-align: center;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+div.warning {
+	background-color: #FFABAB;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+div.error {
+	background-color: #F0FAA6;
+	text-align: center;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+/* Buttons ============================== */
+a.side_button {
+	width: 176px;
+	height: 31px;
+	display: block;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 8px 0 0 28px;
+	background: url(/images/buttons/button_add_background.png) top left no-repeat;
+}
+
+/* Footer =============================== */
+#footer {
+	color: #777;
+	font-size: 0.9em;
+}
+
+/* Side Calendar ======================== */
+.main {
+  margin-top: 15px;
+  width: 200px;
+  border: 0;
+}
+
+.month {
+  font: bold 12px verdana;
+  color: #000;
+  border: 0;
+  padding-bottom: 5px;
+}
+
+.daysofweek {
+  font: bold 12px verdana;
+  color: #666;
+  border: 0;
+}
+
+.days {
+  font-size: 12px;
+  font-family: verdana;
+  color: #000;
+  padding: 2px;
+  border: 0;
+}
+
+.days #today{
+  font-weight: bold;
+  border: 0;
+}
+
+/* Milestone Calendar ======================= */
+
+#milestone_calendar {
+  font-size: 0.7em;
+}
+#milestone_calendar th {
+  background-color: #e5e5e5;
+  border-right: 1px solid #d0d0d0;
+  border-top: 1px solid #d0d0d0;
+  color: #666;
+  padding: 3px;
+}
+#milestone_calendar td {
+  padding: 2px;
+  border-bottom: 1px solid #d0d0d0;
+  border-right: 1px solid #d0d0d0;
+  color: #666;
+  background-color: #F3F3F3;
+}
+#milestone_calendar th.first, #milestone_calendar td.first {
+  border-left: 1px solid #d0d0d0;
+}
+#milestone_calendar td.milestones_list {
+  border: 1px solid #000;
+  background-color: #fff;
+  padding: 4px;
+}
+#milestone_calendar td.today {
+  background-color: #FFFFCC;
+}
+#milestone_calendar td.milestones_list label {
+  font-weight: bold;
+}
+#milestone_calendar td.milestones_list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#milestone_calendar td.milestones_list ul li:before {
+	content: "- ";
+}
+
+/* To-do ===================================== */
+ul.to_do_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a.to_do_list {
+  margin-left: 20px;
+  color: #0000ff;
+  font-size: 0.8em;
+}
+span.incomplete {
+  color: #000;
+  text-decoration: none;
+}
+.complete {
+  color: #666;
+  text-decoration: line-through;
+}
+/* Overview =============================== */
+#history_list {
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+#history_list a {
+  color: #666;
+}
+#history_list td.small_gray {
+  font-size: 0.7em;
+  color: #666;
+}
+#history_list td {
+  border-bottom: 1px solid #efefef;
+}
+label.is_message {
+  font-size: 0.7em;
+  color: #fff;
+  width: 70px;
+  display: block;
+  background-color: #334E7D;
+  padding: 2px 3px;
+  text-align: right;
+}
+label.is_todo {
+  font-size: 0.7em;
+  color: #fff;
+  width: 70px;
+  display: block;
+  background-color: #C87800;
+  padding: 2px 3px;
+  text-align: right;
+}
+label.is_milestone {
+  font-size: 0.7em;
+  color: #fff;
+  width: 70px;
+  display: block;
+  background-color: #5F6E43;
+  padding: 2px 3px;
+  text-align: right;
+}
+
+/* Nubbin ===================== */
+div.widget {
+  z-index: 1;
+}
+
+div.widget div.nubbin div.wrapper {
+  position: absolute;
+  height: 19px;
+  right: 0pt;
+  width: 56px;
+  background-color: transparent;
+  background-image: url(/images/nubbin.gif);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: left top;
+  margin: 0pt;
+  padding: 7px 0 0 7px;
+  font-size: 10px;
+  line-height: 10px;
+}

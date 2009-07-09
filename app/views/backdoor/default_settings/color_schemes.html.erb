@@ -1,0 +1,25 @@
+<% if @color_schemes.length == 0 %>
+  <h3>There are no default color schemes set up.</h3>
+  <p>Click the 'Add a color scheme' button to the right to add a color scheme.</p>
+<% end %>
+
+<table cellspacing="0" cellpadding="3" border="0" id="color_scheme_list" style="margin: 10px 0;" width="100%">
+  <% @color_schemes.each do |cs| %>
+  <tr style="background-color: <%= cycle("fff", "efefef") %>">
+    <td width="25">
+      <div style="background-color: #<%= cs.default_hex_value %>; width: 15px; height: 15px; border: 1px solid #000;"></div> 
+    </td>
+    <td>
+      <%= cs.name %> (<%= "##{cs.default_hex_value}" %>)
+    </td>
+    <td align="right">
+      <%= link_to image_tag('/images/icons/palette.png', :border => 0), :action => "edit_color_scheme", :id => cs %>
+      <% if cs.locked %>
+        <%= image_tag('/images/icons/lock.png', :border => 0) %>
+      <% else %>
+        <%= link_to image_tag('/images/icons/bin_closed.png', :border => 0), {:action => "delete_color_scheme", :id => cs}, :confirm => 'Are you sure?', :method => :post %>
+      <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,15 @@
+<% form_for :company, @company, :url => { :action => "update_company", :id => @company.id } do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  <%= error_messages_for 'company' %>
+  
+  <%= render :partial => "company_form", :locals => { :f => f } %>
+  
+  <p class="submit">
+    <%= submit_tag "Update Company" %>
+    or <%= link_to "Cancel", :action => "index" %>
+  </p>
+
+</fieldset>
+<% end %>

@@ -1,0 +1,5 @@
+<div style="padding: 10px 0;">
+<% form_for :to_do_list, @to_do_list, :url => { :action => "create" } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f, :submit_label => "Create to-do list" } %>
+<% end %>
+</div>

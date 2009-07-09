@@ -1,0 +1,1 @@
+GravatarHelper::DEFAULT_OPTIONS[:rating] = 'R'

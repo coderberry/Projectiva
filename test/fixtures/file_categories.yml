@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: file_categories
+#
+#  id            :integer         not null, primary key
+#  account_id    :integer
+#  created_by_id :integer
+#  name          :string(25)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  created_by_id: 1
+  name: MyString
+
+two:
+  account_id: 1
+  created_by_id: 1
+  name: MyString

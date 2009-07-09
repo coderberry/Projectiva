@@ -1,0 +1,11 @@
+<% form_for :comment, :url => { :action => "add_comment_to_message", :id => message } do |f| %>
+<fieldset>
+  <p>
+    <label>Add Comment</label>
+    <%= f.text_area :body, :cols => 60, :rows => 4 %>
+  </p>
+  <p class="submit">
+    <%= submit_tag "Add Comment", :class => "submit" %>
+  </p>
+</fieldset>
+<% end %>

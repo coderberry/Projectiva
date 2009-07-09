@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title><%= @account.site_name %></title>
+    <%= javascript_include_tag :defaults %>
+    <%= calendar_date_select_includes %>
+    <%= stylesheet_link_tag "application", "tabnav", "top_navigation", "forms" %>
+    <% if @use_calendar %>
+      <%= javascript_include_tag "basiccalendar" %>
+    <% end %>
+  </head>
+  <body>
+    
+    <div id="top_right_links">
+      <%= @user.full_name %> |<%= link_to "Log-out", logout_path %>
+    </div>
+    
+    <div class="header_above_tabs">
+      <h2><%= @page_title ||= @account.site_name %></h2>
+    </div>
+    
+    <%= @tabs.to_html %>
+      
+    <div style="padding: 10px 30px;">
+      <table class="layout" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top" style="width: 67%; background-color: #fff; border-bottom: 2px solid #ccc; border-right: 2px solid #ccc;">
+            <div style="min-height: 300px;">
+              <%= sub_navigation_bar(@subnav) %>
+              
+              <div style="padding: 5px 15px;">
+                <%= yield %>
+              </div>
+            </div>
+          </td>
+          <td valign="top" style="width: 33%; padding: 5px 15px;">
+            <% if !@account.logo_file_name.blank? %><%= image_tag @account.logo.url(:medium), :style => "margin-bottom: 10px;" %><% end %>
+            <%= render :partial => "#{(@side_contents.blank? ? controller.action_name : @side_contents)}" %>
+          </td>
+        </tr>
+      </table>
+      <div id="footer">
+        Copyright &copy;2008 Kodebus. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>

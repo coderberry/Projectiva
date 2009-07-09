@@ -1,0 +1,31 @@
+<h3>Change your color scheme below.</h3>
+<p>All colors are in 6-character HEX values.  For more information on HEX colors, you can visit <%= link_to "here", "http://www.colorschemer.com/online.html", :target => "_blank" %></p>
+
+<% form_for :color_scheme, :url => {:action => "update_color_schemes"} do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  
+  <table cellspacing="0" cellpadding="3" border="0" id="color_scheme_list" style="margin: 10px 0;" width="100%">
+    <% @color_schemes.each do |cs| %>
+    <tr style="background-color: <%= cycle("fff", "efefef") %>">
+      <td width="25">
+        <div style="background-color: #<%= cs.hex_value %>; width: 25px; height: 25px; border: 1px solid #000;"></div> 
+      </td>
+      <td>
+        <%= cs.name %>
+      </td>
+      <td align="right">
+        # <%= f.text_field "#{cs.name}", :value => "#{cs.hex_value}", :style => "width: 100px;" %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  
+  <p class="submit" style="border-top: 1px solid #ccc;">
+    <%= submit_tag "Apply New Colors" %>
+    or <%= link_to "Revert to Original", :action => "revert_colors_to_original" %>
+  </p>
+
+</fieldset>  
+<% end %>

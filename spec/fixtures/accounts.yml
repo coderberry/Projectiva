@@ -1,0 +1,9 @@
+one:
+  company: ABC Corp
+  sub_domain: abc_corp
+  terms_of_service: yes
+
+already_existing:
+  company: An Existing Company
+  sub_domain: already_existing
+  terms_of_service: yes

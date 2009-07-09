@@ -1,0 +1,14 @@
+<% form_for :project, @project, :url => { :action => "update", :id => @project.id } do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  
+  <%= render :partial => "/main/projects/form", :locals => { :f => f } %>
+  
+  <p class="submit">
+    <%= submit_tag "Update Project" %>
+    or <%= link_to "Cancel", project_overview_path(@project) %>
+  </p>
+
+</fieldset>
+<% end %>

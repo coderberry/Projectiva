@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Task Bus</title>
+    <%= stylesheet_link_tag "application", "tabnav", "top_navigation", "forms", "welcome" %>
+  </head>
+  <body>
+    
+    <div style="text-align: center;">
+      <div style="padding: 10px 30px; text-align: left;">
+        <table class="layout" width="800" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td valign="top" style="width: 67%; background-color: #fff;">
+              <div style="min-height: 300px;">
+                <div style="padding: 5px 15px;">
+                  <%= yield %>
+                </div>
+              </div>
+            </td>
+            <td valign="top" style="width: 33%; padding: 5px 15px;">
+              <%= render :partial => "#{(@side_contents.blank? ? controller.action_name : @side_contents)}" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </body>
+</html>

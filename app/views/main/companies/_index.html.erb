@@ -1,0 +1,9 @@
+<%= link_to "Create new company", {:action => "new_company" }, { :class => "side_button" } %>
+<%= link_to "Add a new person", {:action => "new_person" }, { :class => "side_button" } %>
+
+<% display_tip do %>
+<p>
+  <strong>What does "Administrator" mean?</strong><br/>
+  Administrators can create and delete projects, change permissions, edit anyone's content, change settings, and more.
+</p>
+<% end %>

@@ -1,0 +1,54 @@
+<p>
+  <label>Company Name</label>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <label>Address 1</label>
+  <%= f.text_field :address_1 %>
+</p>
+
+<p>
+  <label>Address 2</label>
+  <%= f.text_field :address_2 %>
+</p>
+
+<p>
+  <label>City</label>
+  <%= f.text_field :city %>
+</p>
+
+<p>
+  <label>State / Province</label>
+  <%= f.text_field :state %>
+</p>
+
+<p>
+  <label>Zip / Postal Code</label>
+  <%= f.text_field :zip %>
+</p>
+
+<p>
+  <label>Country</label>
+  <%= f.country_select :country, ['United States','Canada'] %>
+</p>
+
+<p>
+  <label>Web Address</label>
+  <%= f.text_field :web_address %>
+</p>
+
+<p>
+  <label>Office Number</label>
+  <%= f.text_field :office_number %>
+</p>
+
+<p>
+  <label>Fax Number</label>
+  <%= f.text_field :fax_number %>
+</p>
+
+<p>
+  <label style="display: inline;"><%= f.check_box :can_view_private %></label>
+  Can view private messages?
+</p>

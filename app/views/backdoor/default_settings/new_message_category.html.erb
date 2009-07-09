@@ -1,0 +1,17 @@
+<% form_for :message_category, @message_category, :url => { :action => "add_message_category" } do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  
+  <p>
+    <label>Category Name</label>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p class="submit">
+    <%= submit_tag "Add New Default Message Category" %>
+    or <%= link_to "Cancel", backdoor_default_settings_path(:message_categories) %>
+  </p>
+
+</fieldset>
+<% end %>

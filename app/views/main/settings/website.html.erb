@@ -1,0 +1,41 @@
+<h3>Update your website &amp; account settings below.</h3>
+
+<% form_for :account, @account, :url => {:action => "update_website"}, :html => { :multipart => true } do |f| %>
+<fieldset>
+
+  <p>
+    <label>Website Name</label>
+    <%= f.text_field :site_name %>
+  </p>
+
+  <p>
+    <label>Company Name</label>
+    <%= f.text_field :company %>
+  </p>
+  
+  <p>
+    <label>Country</label>
+    <%= f.country_select :country, ['United States','Canada'] %>
+  </p>
+  
+  <p>
+    <label style="display: inline"><%= f.check_box :email_notifications %></label>
+    Receive Email Notifications
+  </p>
+  
+  <p>
+    <label style="display: inline;"><%= f.check_box :newsletter %></label>
+    Receive Newsletter from TaskBus
+  </p>
+  
+  <p>
+    <label>Company Logo</label>
+    <%= file_field "website", "logo" %>
+  </p>
+  
+  <p class="submit">
+    <%= submit_tag "Update Website &amp; Account Settings" %>
+  </p>
+  
+</fieldset>
+<% end %>

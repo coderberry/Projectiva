@@ -1,0 +1,14 @@
+<% form_for :company, @company, :url => { :action => "create_company" } do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  
+  <%= render :partial => "company_form", :locals => { :f => f } %>
+  
+  <p class="submit">
+    <%= submit_tag "Add Company" %>
+    or <%= link_to "Cancel", :action => "index" %>
+  </p>
+
+</fieldset>
+<% end %>

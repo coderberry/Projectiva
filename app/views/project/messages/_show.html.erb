@@ -1,0 +1,5 @@
+<% display_tip('Message Subscribers') do %>
+  <% @message.message_subscribers.each do |ms| %>
+    <%= render :partial => "/main/companies/person_container", :locals => { :p => ms.person, :allow_edit => false } %>
+  <% end %>
+<% end %>

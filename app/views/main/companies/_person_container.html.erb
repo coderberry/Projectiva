@@ -1,0 +1,30 @@
+<div class="float_left" style="min-width: 275px;">
+  <table cellspacing="0" cellpadding="5" border="0" style="font-size: 0.9em; margin: 5px; line-height: 1.2em;">
+    <tr>
+      <td valign="top"><%= gravatar_for p %></td>
+      <td valign="top">
+        <h3 style="margin: 0; padding: 0;"><%= p.full_name %></h3>
+        <%= mail_to p.email %><br/>
+        <% if p.im_name.blank? && !p.is_admin %>
+          <%= "#{p.im_service}: #{p.im_name}" %><br/>
+        <% end %>
+        <% if !p.is_account_owner %>
+          <% if p.is_admin %>
+            <div style="margin-top: 3px; color: #666;">
+              Administrator
+            </div>
+          <% end %>
+          <% if allow_edit %>
+            <div style="color: #aaa; margin-top: 3px;">
+              <%= link_to "Edit", {:action => "edit_person", :id => p.id}, :style => "color: red;" %>
+            </div>
+          <% end %>
+        <% elsif p.is_account_owner %>
+          <div style="margin-top: 3px; color: #666;">
+            Account Owner
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

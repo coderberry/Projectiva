@@ -1,0 +1,2 @@
+module Backdoor::DefaultFileCategoriesHelper
+end

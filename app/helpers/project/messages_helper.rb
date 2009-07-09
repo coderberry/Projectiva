@@ -1,0 +1,2 @@
+module Project::MessagesHelper
+end

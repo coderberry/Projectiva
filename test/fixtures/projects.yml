@@ -1,0 +1,36 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: projects
+#
+#  id                                 :integer         not null, primary key
+#  account_id                         :integer
+#  name                               :string(255)
+#  overview_page_announcement         :text
+#  display_overview_page_announcement :boolean
+#  start_controller                   :string(30)      default("overview")
+#  primary_company_id                 :integer         default(0)
+#  is_public                          :boolean
+#  created_at                         :datetime
+#  updated_at                         :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  name: MyString
+  overview_page_announcement: MyText
+  display_overview_page_announcement: false
+  start_controller: MyString
+  primary_company_id: 1
+  is_public: false
+
+two:
+  account_id: 1
+  name: MyString
+  overview_page_announcement: MyText
+  display_overview_page_announcement: false
+  start_controller: MyString
+  primary_company_id: 1
+  is_public: false

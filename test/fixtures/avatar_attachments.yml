@@ -1,0 +1,27 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: avatar_attachments
+#
+#  id            :integer         not null, primary key
+#  account_id    :integer
+#  person_id     :integer
+#  created_by_id :integer
+#  attachment_id :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  person_id: 1
+  created_by_id: 1
+  attachment_id: 1
+
+two:
+  account_id: 1
+  person_id: 1
+  created_by_id: 1
+  attachment_id: 1

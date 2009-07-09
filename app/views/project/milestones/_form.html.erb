@@ -1,0 +1,54 @@
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tr>
+    <td align="left" valign="top" width="220">
+      <p>
+        <label>When's it due?</label>
+        <%= calendar_date_select_tag :date_due, @milestone.date_due, :embedded => true %>
+      </p>
+    </td>
+    <td align="left" valign="top">
+      <fieldset>
+      <p>
+        <label style="display: inline;">Enter a title</label> <cite>(Ex: Design review 2)</cite><br/>
+        <%= f.text_field :name, :style => "font-size: 1.2em; padding: 2px; width: 350px;" %>
+      </p>
+      <p>
+        <label>Who's responsible?</label>
+        <select name="responsible">
+          <option value="person_<%= @user.id %>"
+            <%= @milestone.responsible_person_id == @user.id ? "selected" : "" %>
+          >Me (<%= @user.full_name %>)</option>
+          <option value="">----------</option>
+          <option value="company_0">PERSONAL</option>
+        <% @account.personal_people.each do |person| %>
+          <option value="person_<%= person.id %>"
+            <%= @milestone.responsible_person_id == person.id ? "selected" : "" %>
+          ><%= person.full_name %></option>
+        <% end %>
+        <% @account.companies.each do |company| %>  
+          <option value="">----------</option>
+          <option value="company_<%= company.id %>"
+            <%= @milestone.responsible_company_id == company.id ? "selected" : "" %>
+          ><%= company.name.upcase %></option>
+          <% company.people.each do |person| %>
+            <option value="person_<%= person.id %>"
+              <%= @milestone.responsible_person_id == person.id ? "selected" : "" %>
+            ><%= person.full_name %></option>
+          <% end %>
+        <% end %>
+        </select>
+      </p>
+      <p>
+        <%= f.check_box :email_before_due %> Email 48-hours before it's due
+      </p>
+      <p class="submit">
+        <%= submit_tag submit_label, :class => "submit" %>
+        or <%= link_to "Cancel", project_milestones_path(@project) %>
+        <% if @milestone.id %>
+        or <%= link_to "Delete", { :action => "destroy", :id => @milestone }, :method => :delete, :confirm => "Are you sure?", :style => "color: #ff0000" %>
+        <% end %>
+      </p>
+      </fieldset>
+    </td>
+  </tr>
+</table>

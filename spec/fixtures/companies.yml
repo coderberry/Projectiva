@@ -1,0 +1,6 @@
+one:
+  account_id: 1
+  created_by_id: 1
+  name: Test Company
+  timezone: MST
+  can_view_private: true

@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: messages
+#
+#  id                  :integer         not null, primary key
+#  account_id          :integer
+#  project_id          :integer
+#  message_category_id :integer
+#  person_id           :integer
+#  body                :text
+#  extended_body       :text
+#  is_private          :boolean
+#  milestone_id        :integer         default(0)
+#  created_at          :datetime
+#  updated_at          :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  project_id: 1
+  message_category_id: 1
+  person_id: 1
+  body: MyText
+  extended_body: MyText
+  is_private: false
+  milestone_id: 1
+
+two:
+  account_id: 1
+  project_id: 1
+  message_category_id: 1
+  person_id: 1
+  body: MyText
+  extended_body: MyText
+  is_private: false
+  milestone_id: 1

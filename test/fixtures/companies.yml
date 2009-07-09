@@ -1,0 +1,60 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: companies
+#
+#  id               :integer         not null, primary key
+#  account_id       :integer
+#  created_by_id    :integer
+#  name             :string(80)
+#  address_1        :string(80)
+#  address_2        :string(80)
+#  city             :string(55)
+#  state            :string(55)
+#  zip              :string(15)
+#  country          :string(2)
+#  timezone         :string(15)      default("MST")
+#  web_address      :string(150)
+#  office_number    :string(25)
+#  fax_number       :string(25)
+#  can_view_private :boolean
+#  logo_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  created_by_id: 1
+  name: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  country: MyString
+  timezone: MyString
+  web_address: MyString
+  office_number: MyString
+  fax_number: MyString
+  can_view_private: false
+  logo_id: 1
+
+two:
+  account_id: 1
+  created_by_id: 1
+  name: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  country: MyString
+  timezone: MyString
+  web_address: MyString
+  office_number: MyString
+  fax_number: MyString
+  can_view_private: false
+  logo_id: 1

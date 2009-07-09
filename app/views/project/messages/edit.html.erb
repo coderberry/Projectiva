@@ -1,0 +1,14 @@
+<% form_for :message, @message, :url => { :action => "update", :id => @message } do |f| %>
+<fieldset>
+
+  <%= display_flash(flash) %>
+  
+  <%= render :partial => "form", :locals => { :f => f } %>
+  
+  <p class="submit">
+    <%= submit_tag "Save Changes" %>
+    or <%= link_to "Cancel", :action => "index" %>
+  </p>
+
+</fieldset>
+<% end %>

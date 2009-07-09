@@ -1,0 +1,40 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: milestones
+#
+#  id                     :integer         not null, primary key
+#  account_id             :integer
+#  project_id             :integer
+#  created_by_id          :integer
+#  name                   :string(255)
+#  responsible_company_id :integer         default(0)
+#  responsible_person_id  :integer         default(0)
+#  email_before_due       :boolean         default(TRUE)
+#  date_due               :date
+#  is_complete            :boolean
+#  created_at             :datetime
+#  updated_at             :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  project_id: 1
+  created_by_id: 1
+  responsible_company_id: 1
+  responsible_person_id: 1
+  email_before_due: false
+  date_due: 2008-06-28
+  status: MyString
+
+two:
+  account_id: 1
+  project_id: 1
+  created_by_id: 1
+  responsible_company_id: 1
+  responsible_person_id: 1
+  email_before_due: false
+  date_due: 2008-06-28
+  status: MyString

@@ -1,0 +1,16 @@
+<% @messages.each do |message| 
+    comments = message.comments
+  %>
+  <div>
+    <h3 style="margin-bottom: 10px; padding: 2px; background-color: #efefef;"><%= link_to message.title, { :action => "show", :id => message }, :style => "color: #000; text-decoration: none;" %></h3>
+    <p style="padding-left: 10px;">
+      <%= textilize(message.body) %>
+    </p>
+    <p style="margin-top: 10px; font-size: 0.8em;">
+      Posted by <%= Person.find(message.person_id).full_name %> in 
+        <%= message.message_category_id.blank? ? "Uncategorized" : MessageCategory.find(message.message_category_id).name %> |
+        <%= link_to "Edit", { :action => "edit", :id => message }, :style => "color: #ff0000;" %> |
+        <%= link_to "#{pluralize(comments.length, "Comment")}", project_messages_path(@project, "show", message) %>
+    </p>
+  </div>
+<% end %>

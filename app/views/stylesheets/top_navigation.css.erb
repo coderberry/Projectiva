@@ -1,0 +1,16 @@
+#top_right_links {
+	position: absolute;
+	top: 5px;
+	right: 30px;
+	color: #<%= @color_schemes['Tab Inactive Foreground'] %>;
+	font-size: 0.8em;
+}
+#top_right_links a {
+	color: #<%= @color_schemes['Tab Inactive Foreground'] %>;
+	padding: 5px;
+}
+#top_right_links a:hover {
+	color: #<%= @color_schemes['Tab Hover Foreground'] %>;
+	background-color: #<%= @color_schemes['Tab Hover Background'] %>;
+	text-decoration: none;
+}

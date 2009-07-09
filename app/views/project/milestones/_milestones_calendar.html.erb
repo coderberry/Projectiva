@@ -1,0 +1,51 @@
+<h5>Due in the next 14 days</h5>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" id="milestone_calendar">
+  <tr>
+<% (Date.parse(Time.now.strftime("%Y-%m-%d"))..(Date.parse((Time.now + 6.days).strftime("%Y-%m-%d")))).each do |day| %>
+    <th
+      <% if day.strftime("%a") == Time.now.strftime("%a") %>
+      class="first"
+      <% end %>
+    ><%= day.strftime("%a") %></th>
+<% end %>
+  <tr>
+<% 
+i = 0
+(Date.parse(Time.now.strftime("%Y-%m-%d"))..(Date.parse((Time.now + 13.days).strftime("%Y-%m-%d")))).each do |day| %>
+    <td valign="top"
+    
+    <%
+    @day_milestones = @project.milestones_by_date(day)
+    if @day_milestones.length > 0
+    %>
+    
+      class="milestones_list
+        <% if day.strftime("%Y-%m-%d") == Time.now.strftime("%Y-%m-%d") %>
+          today"><label>Today</label>
+        <% else %>
+          "><label><%= day.strftime("%b %d") %></label>
+        <% end %>
+        <ul>
+        <% @day_milestones.each do |milestone| %>
+          <li><%= milestone.name %></li>
+        <% end %>
+        </ul>
+      </div>
+    
+    <% else %>
+    
+      <% if day.strftime("%a") == Time.now.strftime("%a") %>
+      class="first"
+      <% end %>
+      ><%= day.strftime("%b %d") %></td>
+    
+    <% end %>
+    
+    <% if i == 6 %>
+      </tr><tr>
+    <% end 
+    i = i + 1
+    %> 
+<% end %>
+  </tr>
+</table>

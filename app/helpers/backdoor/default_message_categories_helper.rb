@@ -1,0 +1,2 @@
+module Backdoor::DefaultMessageCategoriesHelper
+end

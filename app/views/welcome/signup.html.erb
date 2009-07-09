@@ -1,0 +1,87 @@
+<% form_for :signup, :action => "signup" do %>
+  
+  <fieldset>
+    <legend>Create your administrator account</legend>
+    
+    <%= display_flash(flash) %>
+    <p>
+      <label>First Name</label>
+      <%= text_field :person, :first_name %>
+    </p>
+    <p>
+      <label>Last Name</label>
+      <%= text_field :person, :last_name %>
+    </p>
+    <p>
+      <label>Email</label>
+      <%= text_field :person, :email %>
+    </p>
+    <p>
+      <label>Username</label>
+      <%= text_field :person, :username %>
+    </p>
+    <p>
+      <label>Password</label>
+      <%= password_field :person, :password %>
+    </p>
+    <p>
+      <label>Password (again)</label>
+      <%= password_field :person, :password_confirmation %>
+    </p>
+    
+    <p>
+      <label>Company</label>
+      <%= text_field :account, :company %>
+    </p>
+    
+    <p>
+      <label>Country</label>
+      <%= country_select :account, :country, ['United States','Canada'] %>
+    </p>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Create your Task Bus site address</legend>
+    
+    <p class="regular">
+      Every Basecamp site has its own unique web address. This is where you'll login. For example, 
+      if you wanted your Basecamp site to be at acme.basecamphq.com you'd enter acme in the field 
+      below.<br/><strong>Letters and numbers only — no spaces.</strong>
+    </p>
+    <p class="regular">
+      <table cellspacing="0" cellpadding="2" border="0">
+        <tr>
+          <td>http://</td>
+          <td><%= text_field :account, :sub_domain, :size => 15 %></td>
+          <td>.taskb.us</td>
+        </tr>
+      </table>
+    </p>
+  </fieldset>
+  
+  <fieldset>
+    <legend>Enter your billing information (SECURE)</legend>
+    
+    Coming soon.  Sorry.
+    
+  </fieldset>
+      
+  <fieldset>
+    <legend>Review, accept terms, & complete signup</legend>
+    
+    <p class="regular">
+      Please review our <%= link_to "Terms of Service", :action => "terms_of_service" %>, 
+      <%= link_to "Privacy Policy", :action => "privacy_policy" %>, and Refund Policy. If you have questions please email support.
+    </p>
+    
+    <p class="hilight">
+      <%= check_box :account, :terms_of_service, {}, "yes", "no" %> I agree to the Terms of Service, Privacy, & Refund policies
+    </p>
+
+    <p class="submit">
+      <%= submit_tag "Create Account" %>
+      or <%= link_to "Login", :action => "index" %>
+    </p>
+    
+  </fieldset>
+<% end %>

@@ -1,0 +1,51 @@
+<p>
+  <label>Title</label>
+  <%= f.text_field :title, :style => "width: 600px;" %>
+</p>
+
+<p>
+  <label>Message  <cite>(<%= link_to "Textile", "http://hobix.com/textile/", :target => "_blank" %> enabled)</cite></label>
+  <%= f.text_area :body, :cols => 70, :rows => 10, :style => "width: 600px;" %><br/>
+  <label style="display: inline;"><%= f.check_box :is_private %></label> Is a private message?
+</p>
+
+<p>
+  <label style="display: inline;">Does this message relate to a milestone?</label>
+  <%= f.select :milestone_id, @account.milestones.collect{ |c| [c.name, c.id] }, {:include_blank => 'No'} %>
+</p>
+
+<p>
+  <label>Subscribe people to receive email notifications</label>
+  <span style="color: #666; display: block; padding-top: 5px;">
+    The people you select will get an email when you post this message.<br/>
+    They'll also be notified by email every time a comment is added.
+  </span>
+  
+  <table cellspacing="0" cellpadding="0" border="0" style="font-size: 0.9em; color: #343434;">
+  <% @account.companies.each do |company| %>
+    <tr>
+      <td align="left">
+        <div style="margin-top: 10px;"><strong><%= company.name %></strong></div>
+      </td>
+    </tr>
+    <tr>
+      <td align="left">
+        <% company.people.each do |person| %>
+          <div style="float: left; margin-right: 20px;">
+            <input type="checkbox" name="company[person_<%= person.id %>]" id="company_person_<%= person.id %>" 
+              <% if @message.is_subscribed? person %>checked="checked"<% end %>
+            /> <%= person.full_name %>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  <% if @account.companies.length < 1 %>
+    <tr>
+      <td align="left">
+         <div style="margin-top: 10px;"><strong>You do not have any companies set up.</div>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</p>

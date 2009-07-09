@@ -1,0 +1,53 @@
+<% @companies.each do |company| %>
+  <div class="gray_section_header">
+    <div class="float_left">
+      <h3>
+        <% if company.web_address.blank? %>
+          <%= company.name %>
+        <% else %>  
+          <a href="<%= company.web_address %>" target="_blank"><%= company.name %></a>
+        <% end %>
+      </h3>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <table cellspacing="0" cellpadding="3" border="0" width="100%" style="font-size: 0.9em;">
+    <tr>
+      <td valign="top" width="30%">
+        <%= (company.address_1.blank? ? "" : "#{company.address_1}<br/>") %>
+        <%= (company.address_2.blank? ? "" : "#{company.address_2}<br/>") %>
+        <% if !company.city.blank? || !company.state.blank? || !company.zip.blank? %>
+          <%= (company.city.blank? ? "" : "#{company.city}, ") %>
+          <%= (company.state.blank? ? "" : "#{company.state} ") %>
+          <%= (company.zip.blank? ? "" : "#{company.zip}") %><br/>
+          <%= (company.country.blank? ? "" : "#{company.country}<br/>") %>
+        <% end %>
+        <%= (company.office_number.blank? ? "" : "Phone: #{company.office_number}<br/>") %>
+        <%= (company.fax_number.blank? ? "" : "Fax: #{company.fax_number}<br/>") %>
+        <br/>
+      </td>
+      <td valign="top" width="70%">
+        <% company.people.each do |p| %>
+          <%= render :partial => "person_container", :locals => { :p => p, :allow_edit => true } %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+<div class="gray_section_header">
+  <div class="float_left">
+    <h3>Personal Use</h3>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<table cellspacing="0" cellpadding="3" border="0" width="100%" style="font-size: 0.9em;">
+  <tr>
+    <td valign="top">
+      <% @personal_people.each do |p| %>
+        <%= render :partial => "person_container", :locals => { :p => p, :allow_edit => true } %>
+      <% end %>
+    </td>
+  </tr>
+</table>

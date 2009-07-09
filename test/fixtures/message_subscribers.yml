@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: message_subscribers
+#
+#  id         :integer         not null, primary key
+#  account_id :integer
+#  message_id :integer
+#  person_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  message_id: 1
+  person_id: 1
+
+two:
+  account_id: 1
+  message_id: 1
+  person_id: 1

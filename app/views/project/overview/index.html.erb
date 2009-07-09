@@ -1,0 +1,71 @@
+<%= @project.display_overview_page_announcement ? textilize(@project.overview_page_announcement) : "" %>
+
+<div style="border: 1px solid #d0d0d0; padding: 1px;">
+  <h4 style="margin: 0; padding: 0; background-color: #e5e5e5; padding: 2px;">Upcoming Milestones</h4>
+  <div style="padding: 5px;">
+    <%= render :partial => "/project/milestones/milestones_calendar" %>
+  </div>
+</div>
+
+<% @data.sort.each do |key, items| %>
+
+  <h6><%= Date.parse(key).strftime("%A, %d %B") %></h6>
+  <table cellspacing="0" cellpadding="2" border="0" width="100%" id="history_list">
+  <% items.each do |item| %>
+    <tr>
+      <td align="left" valign="top" width="80">
+      
+      <% if item.class.to_s == "Message" %>
+        <label class="is_message">Message<label>
+        </td>
+        <td align="left" valign="top">
+          <%= link_to item.title, project_messages_path(@project, "show", item.id) %>
+        </td>
+        <td align="right" valign="top" class="small_gray" nowrap>
+          Entered by <span style="color: #000;"><%= Person.find(item.person_id).full_name %></span>
+        </td>
+        
+      <% elsif item.class.to_s == "Milestone" %>
+        <label class="is_milestone">Milestone<label>
+        </td>
+        <td align="left" valign="top">
+          <% if item.is_complete %>
+            <span class="complete"><%= item.name %></span>
+          <% else %>
+            <%= item.name %> 
+          <% end %>
+          (<%= link_to "Due #{item.date_due.strftime("%d %B")}", project_milestones_path(@project) %>)
+        </td>
+        <td align="right" valign="top" class="small_gray" nowrap>
+          <% if item.is_complete %>
+            Completed by <span style="color: #000;"><%= item.responsible_party_name %></span>
+          <% else %>
+            Entered by <span style="color: #000;"><%= Person.find(item.created_by_id).full_name %></span>
+          <% end %>
+        </td>
+        
+      <% else %>
+        <label class="is_todo">To-do<label>
+        </td>
+        <td align="left" valign="top">
+          <% if item.is_complete %>
+            <span class="complete"><%= item.description %></span>
+          <% else %>
+            <%= item.description %>
+          <% end %>
+          (<%= link_to ToDoList.find(item.to_do_list_id).name, project_todos_path(@project) %>)
+        </td>
+        <td align="right" valign="top" class="small_gray" nowrap>
+          <% if item.is_complete %>
+            Completed by <span style="color: #000;"><%= item.responsible_party_name %></span>
+          <% else %>
+            Entered by <span style="color: #000;"><%= Person.find(item.created_by_id).full_name %></span>
+          <% end %>
+        </td>
+        
+      <% end %>
+
+    </tr>
+  <% end %>
+  </table>
+<% end %>

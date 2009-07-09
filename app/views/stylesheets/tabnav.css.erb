@@ -1,0 +1,130 @@
+.header_above_tabs {
+	background-color: #<%= @color_schemes['Header Background'] %>; 
+	height: 50px;
+}
+.header_above_tabs h2 {
+	color: #<%= @color_schemes['Header Foreground'] %>;
+	font-size: 1.9em;
+	font-weight: normal;
+	padding: 12px 0 5px 30px;
+	letter-spacing: 1px;
+}
+.tabnav {
+	background-color: #<%= @color_schemes['Header Background'] %>;
+	color: #<%= @color_schemes['Tab Inactive Foreground'] %>;
+	border-bottom: 2px solid #<%= @color_schemes['Header Background'] %>;
+	margin: 0px;
+	padding: 6px 0 4px 0;
+	z-index: 1;
+	padding-left: 30px;
+	padding-right: 30px; }
+
+.tabnav ul {
+	margin: 0px;
+	padding: 0px; }
+
+.tabnav li {
+	display: inline;
+	overflow: hidden;
+	margin-right: 2px;
+	list-style-type: none; }
+
+.tabnav li span.disabled {
+	color: #888888;
+	background: #999;
+	border: 1px solid #000;
+	border-bottom: 0;
+	padding: 4px 8px 4px 8px;
+	margin: 0;
+	text-decoration: none;}
+
+.tabnav a, .tabnav a.active {
+	color: #<%= @color_schemes['Tab Inactive Foreground'] %>;
+	background: #<%= @color_schemes['Tab Inactive Background'] %>;
+	border-bottom: 2px solid #<%= @color_schemes['Tab Inactive Background'] %>;
+	padding: 4px 8px 4px 8px;
+	margin: 0;
+	text-decoration: none; }
+
+.tabnav a.active {
+	font-weight: bold;
+	background: #<%= @color_schemes['Tab Active Background'] %>;
+	border: 2px solid #<%= @color_schemes['Tab Active Background'] %>;
+	border-bottom: 3px solid #<%= @color_schemes['Tab Active Background'] %>; }
+
+.tabnav a:hover {
+	color: #<%= @color_schemes['Tab Hover Foreground'] %>;
+	background: #<%= @color_schemes['Tab Hover Background'] %>;
+	border-bottom: 2px solid #<%= @color_schemes['Tab Hover Background'] %>; }
+
+.tabnav a:visited {
+	color: #<%= @color_schemes['Tab Inactive Foreground'] %>; }
+
+.tabnav a.active:visited {
+	color: #000; }
+
+.tabnav a.active:hover {
+	background: #<%= @color_schemes['Tab Active Background'] %>;
+	border: 2px solid #<%= @color_schemes['Tab Active Background'] %>;
+	border-bottom: 3px solid #<%= @color_schemes['Tab Active Background'] %>; }
+
+.sub_tabnav {
+	background-color: #<%= @color_schemes['Main Navigation Background'] %>;
+	color: #000;
+	border-bottom: 2px solid #<%= @color_schemes['Header Background'] %>;
+	margin: 0px;
+	padding: 6px 0 4px 0;
+	z-index: 1;
+	padding-left: 30px;
+	padding-right: 30px; }
+
+.sub_tabnav ul {
+	margin: 0px;
+	padding: 0px; }
+
+.sub_tabnav li {
+	display: inline;
+	overflow: hidden;
+	margin-right: 2px;
+	list-style-type: none; }
+
+.sub_tabnav li span.disabled {
+	color: #888888;
+	background: #999;
+	border: 1px solid #000;
+	border-bottom: 0;
+	padding: 4px 8px 4px 8px;
+	margin: 0;
+	text-decoration: none;}
+
+.sub_tabnav a, .sub_tabnav a.active {
+	color: #FFFFFF;
+	background: #<%= @color_schemes['Tab Inactive Background'] %>;
+	border-bottom: 2px solid #<%= @color_schemes['Tab Inactive Background'] %>;
+	padding: 4px 8px 4px 8px;
+	margin: 0;
+	text-decoration: none; }
+
+.sub_tabnav a.active {
+	color: #000;
+	font-weight: bold;
+	background: #E5E5E5;
+	border: 2px solid #E5E5E5;
+	border-bottom: 3px solid #E5E5E5; }
+
+.sub_tabnav a:hover {
+	color: #FFFFFF;
+	background: #1D64AD;
+	border-bottom: 2px solid #1D64AD; }
+
+.sub_tabnav a:visited {
+	color: #FFF; }
+
+.sub_tabnav a.active:visited {
+	color: #000; }
+
+.sub_tabnav a.active:hover {
+	background: #E5E5E5;
+	border-bottom: 2px solid #E5E5E5;
+	color: #000000; }
+

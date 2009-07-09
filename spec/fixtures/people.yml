@@ -1,0 +1,11 @@
+account_owner:
+  account_id: one.id
+  company_id: one.id
+  created_by_id: account_owner.id
+  first_name: Eric
+  last_name: Berry
+  email: cavneb@gmail.com
+  username: cavneb
+  password: test
+  is_admin: true
+  is_account_owner: true

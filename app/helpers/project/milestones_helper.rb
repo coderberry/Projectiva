@@ -1,0 +1,2 @@
+module Project::MilestonesHelper
+end

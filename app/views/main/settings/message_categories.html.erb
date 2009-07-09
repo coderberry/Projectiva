@@ -1,0 +1,16 @@
+<% if @message_categories.length == 0 %>
+  <h3>There are no message categories set up.</h3>
+  <p>Click the 'Add a message category' button to the right to add a message category.</p>
+<% end %>
+
+<table cellspacing="0" cellpadding="3" border="0" style="margin: 10px 0;" width="100%">
+  <% @message_categories.each do |m| %>
+  <tr style="background-color: <%= cycle("fff", "efefef") %>">
+    <td><%= m.name %></td>
+    <td align="right">
+      <%= link_to image_tag('/images/icons/textfield.png', :border => 0), :action => "edit_message_category", :id => m %>
+      <%= link_to image_tag('/images/icons/bin_closed.png', :border => 0), {:action => "delete_message_category", :id => m}, :confirm => 'Are you sure?', :method => :post %>
+    </td>
+  </tr>
+  <% end %>
+</table>

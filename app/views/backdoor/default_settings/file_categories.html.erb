@@ -1,0 +1,16 @@
+<% if @file_categories.length == 0 %>
+  <h3>There are no default file categories set up.</h3>
+  <p>Click the 'Add a file category' button to the right to add a file category.</p>
+<% end %>
+
+<table cellspacing="0" cellpadding="3" border="0" style="margin: 10px 0;" width="100%">
+  <% @file_categories.each do |f| %>
+  <tr style="background-color: <%= cycle("fff", "efefef") %>">
+    <td><%= f.name %></td>
+    <td align="right">
+      <%= link_to image_tag('/images/icons/textfield.png', :border => 0), :action => "edit_file_category", :id => f %>
+      <%= link_to image_tag('/images/icons/bin_closed.png', :border => 0), {:action => "delete_file_category", :id => f}, :confirm => 'Are you sure?', :method => :post %>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,19 @@
+<% form_for :login, :action => "login" do %>
+<fieldset>
+  
+  <%= display_flash(flash) %>
+
+  <p>
+    <label>Username</label>
+    <%= text_field :login, :username %>
+  </p>
+  <p>
+    <label>Password</label>
+    <%= password_field :login, :password %>
+  </p>
+  <p class="submit">
+    <%= submit_tag "Login" %>
+    or <%= link_to "Cancel", root_path %>
+  </p>
+</fieldset>
+<% end %>

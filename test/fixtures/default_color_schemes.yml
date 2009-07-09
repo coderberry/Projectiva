@@ -1,0 +1,24 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: default_color_schemes
+#
+#  id                :integer         not null, primary key
+#  name              :string(30)
+#  default_hex_value :string(6)
+#  path_to_thumbnail :string(55)
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  default_hex_value: MyString
+  path_to_thumbnail: MyString
+
+two:
+  name: MyString
+  default_hex_value: MyString
+  path_to_thumbnail: MyString

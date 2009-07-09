@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Task Bus - Backdoor</title>
+    <%= stylesheet_link_tag "application", "tabnav", "top_navigation", "forms" %>
+    <%= javascript_include_tag 'prototype' %>
+  </head>
+  <body>
+    
+    <div id="top_right_links">
+      <%= session[:super_duper_admin] %> |<%= link_to "Log-out", "/backdoor/logout" %>
+    </div>
+    
+    <div class="header_above_tabs">
+      <h2><%= @page_title ||= "Task Bus - Backdoor" %></h2>
+    </div>
+    
+    <%= @tabs.to_html %>
+      
+    <div style="padding: 10px 30px;">
+      <table class="layout" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td valign="top" style="width: 67%; background-color: #fff; border-bottom: 2px solid #ccc; border-right: 2px solid #ccc;">
+            <div style="min-height: 300px;">
+            
+              <%= sub_navigation_bar(@subnav) %>
+              
+              <div style="padding: 5px 15px;">
+                <%= yield %>
+              </div>
+            </div>
+          </td>
+          <td valign="top" style="width: 33%; padding: 5px 15px;">
+            <%= render :partial => "#{(@side_contents.blank? ? controller.action_name : @side_contents)}" %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,5 @@
+<div style="padding: 10px 0;">
+<% form_for :milestone, @milestone, :url => { :action => "update", :id => @milestone } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f, :submit_label => "Save changes" } %>
+<% end %>
+</div>

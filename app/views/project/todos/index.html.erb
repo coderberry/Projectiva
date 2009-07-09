@@ -1,0 +1,76 @@
+<% if @to_do_lists.length == 0 %>
+  
+  <h3>You have no to-do items.</h3>
+  
+<% else %>
+
+  <%= display_flash(flash) %>
+
+  <% @to_do_lists.each do |list| %>
+    
+    <div class="widget">
+      <div class="nubbin hover_target" id="list_<%= list.id %>_nubbin">
+        <div class="wrapper">
+          <ul>
+            <li class="delete">Delete</li>
+            <li class="edit">edit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <h3 style="border-bottom: 1px solid #000;"><%= list.name %></h3>
+    <p style="margin-top: 0; padding-top: 2px; color: #666;"><%= list.description %></p>
+    <ul class="to_do_list" id="to_do_list_<%= list.id %>" style="margin-bottom: 10px;">
+      <% list.to_do_items.each do |item| %>
+        <li id="<%= @project.id %>_<%= list.id %>_<%= item.id %>" class="todo">
+          <input id="item_<%= item.id %>_checkbox" 
+                <% if item.is_complete %> checked="checked" <% end %>
+                 onclick="toggleDescriptionClass(<%= item.id %>); new Ajax.Request('/project/<%= @project.id %>/todos/complete_item/<%= item.id %>?authenticity_token=<%= form_authenticity_token.to_s %>', 
+                 {asynchronous:true, evalScripts:true})" type="checkbox">
+          <span id="checkbox_description_<%= item.id %>" class="<%= item.is_complete ? "complete" : "incomplete" %>">
+            <%= item.description %> - <%= item.responsible_party_name %>
+          </span>
+        </li>
+      <% end%>
+    </ul>
+    <div id="add_item_form_<%= list.id %>" style="background-color: #EBEBEB; display: none; padding: 15px;">
+      <% form_for :to_do_item, :url => { :action => "add_item_to_list", :id => list } do |f| -%>
+      
+        <p style="margin: 0;">
+          <label style="display: block; font-weight: bold;">Enter a description</label>
+          <%= f.text_area :description, :rows => 4, :cols => 55 %>
+        </p>
+        
+        <p style="margin: 5px 0 0 0;">
+          <label>Who's responsible?</label>
+          <select name="responsible">
+            <option value="person_<%= @user.id %>">Me (<%= @user.full_name %>)</option>
+            <option value="">----------</option>
+            <option value="company_0">PERSONAL</option>
+          <% @account.personal_people.each do |person| %>
+            <option value="person_<%= person.id %>"><%= person.full_name %></option>
+          <% end %>
+          <% @account.companies.each do |company| %>  
+            <option value="">----------</option>
+            <option value="company_<%= company.id %>"><%= company.name.upcase %></option>
+            <% company.people.each do |person| %>
+              <option value="person_<%= person.id %>"><%= person.full_name %></option>
+            <% end %>
+          <% end %>
+          </select>
+        </p>
+        
+        <p style="margin: 20px 0 0 0; padding: 0;" class="submit">
+          <%= submit_tag "Add to-do item", :class => "submit", :onclick => "$('add_item_form_#{list.id}').show(); $('add_item_link_#{list.id}').hide()" %>
+          or <%= link_to_function "Cancel", "$('add_item_form_#{list.id}').hide(); $('add_item_link_#{list.id}').show()", :style => "color: #0000ff" %>
+        </p>
+        
+      <% end -%>
+    </div>
+    <div id="add_item_link_<%= list.id %>" style="margin-bottom: 30px;">
+      <%= link_to_function "Add to-do item", "$('add_item_form_#{list.id}').show(); $('add_item_link_#{list.id}').hide()", :class => "to_do_list" %>
+    </div>
+  <% end %>
+
+<% end %>

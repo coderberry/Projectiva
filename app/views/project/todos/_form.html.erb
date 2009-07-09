@@ -1,0 +1,17 @@
+<fieldset>
+  <p>
+    <label style="display: inline;">First give the list a name</label> <cite>(eg. "Things for the meeting")</cite><br/>
+    <%= f.text_field :name, :style => "font-size: 1.2em; padding: 2px; width: 600px;" %>
+  </p>
+  <p>
+    <label>Description</label>
+    <%= f.text_area :description, :cols => 65, :rows => 4, :style => "width: 600px;" %><br/>
+    <label style="margin-top: 10px;">Does this relate to a milestone?</label>
+    <%= f.select(:milestone_id, @milestones.collect {|ms| [ms.name, ms.id] }, { :include_blank => "None" }) %>
+    
+  </p>
+  <p class="submit">
+    <%= submit_tag submit_label, :class => "submit" %>
+    or <%= link_to "Cancel", project_todos_path(@project) %>
+  </p>
+</fieldset>

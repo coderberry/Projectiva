@@ -1,0 +1,77 @@
+<p>
+  <label>Company</label>
+  <select name="person[company_id]" id="person_company_id">
+    <option value="0">Personal</option>
+    <%= options_from_collection_for_select(@account.companies, "id", "name", @person.company_id) %>
+  </select>
+</p>
+
+<p>
+  <label>First Name</label>
+  <%= f.text_field :first_name %>
+</p>
+
+<p>
+  <label>Last Name</label>
+  <%= f.text_field :last_name %>
+</p>
+
+<p>
+  <label>Email</label>
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <label>Open ID</label>
+  <%= f.text_field :openid %>
+</p>
+
+<p>
+  <label>Username</label>
+  <%= f.text_field :username %>
+</p>
+
+<p>
+  <label>Password</label>
+  <%= f.text_field :password %>
+</p>
+
+<p>
+  <label>Title</label>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <label>Office Number</label>
+  <%= f.text_field :office_number %>
+</p>
+
+<p>
+  <label>Mobile Number</label>
+  <%= f.text_field :mobile_number %>
+</p>
+
+<p>
+  <label>Fax Number</label>
+  <%= f.text_field :fax_number %>
+</p>
+
+<p>
+  <label>Home Number</label>
+  <%= f.text_field :home_number %>
+</p>
+
+<p>
+  <label>Instant Messenger</label>
+  <%= f.text_field :im_name %>
+  <select name="person[im_service]" id="person_im_service">
+    <% %w(AOL MSN ICQ Yahoo Jabber Skype Google).each do |x| %>
+      <option value="<%= x %>" <% if @person.im_service == x %>selected<% end %>><%= x %></option>
+    <% end %>
+  </select>
+</p>
+
+<p>
+  <label style="display: inline;"><%= f.check_box :is_admin %></label>
+  Has admin access?
+</p>

@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 20080628075427
+#
+# Table name: to_do_lists
+#
+#  id            :integer         not null, primary key
+#  account_id    :integer
+#  project_id    :integer
+#  created_by_id :integer
+#  is_private    :boolean
+#  description   :string(255)
+#  milestone_id  :integer         default(0)
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  account_id: 1
+  project_id: 1
+  created_by_id: 1
+  is_private: false
+  description: MyString
+  milestone_id: 1
+
+two:
+  account_id: 1
+  project_id: 1
+  created_by_id: 1
+  is_private: false
+  description: MyString
+  milestone_id: 1

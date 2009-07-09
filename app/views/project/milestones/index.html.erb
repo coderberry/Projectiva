@@ -1,0 +1,44 @@
+<% if @milestones.length == 0 && @completed_milestones.length == 0 %>
+  
+  <h3>You have no milestones.</h3>
+  <p>Create milestones to keep track of what's due, when it's due, and who's responsible for doing it.</p>
+  
+<% else %>
+
+  <%= display_flash(flash) %>
+  
+  <%= render :partial => "milestones_calendar" %>
+  
+  <h5 style="margin-top: 20px;">All upcoming</h5>
+  <% @milestones.each do |milestone| %>
+    <div class="milestone">
+      <p class="header">
+        <%= milestone.date_due.strftime("%A, %d %B") %> - <%= milestone.responsible_party_name %>
+      </p>
+      <p class="details">
+        <%= milestone.name %> 
+        <span style="font-size: 0.7em; margin: 0; padding: 0;">
+          <%= link_to "Edit", project_milestones_path(@project, "edit", milestone) %> or
+          <%= link_to "Complete", project_milestones_path(@project, "mark_as_completed", milestone), :style => "color: #0000ff" %>
+        </span>
+      </p>
+    </div>
+  <% end %>
+  
+  <h5 style="margin-top: 20px;">All completed</h5>
+  <% @completed_milestones.each do |milestone| %>
+    <div class="milestone">
+      <p class="header">
+        <%= milestone.date_due.strftime("%A, %d %B") %> - <%= milestone.responsible_party_name %>
+      </p>
+      <p class="details">
+        <%= milestone.name %> 
+        <span style="font-size: 0.7em; margin: 0; padding: 0;">
+          <%= link_to "Mark as Incomplete", project_milestones_path(@project, "mark_as_incomplete", milestone), :style => "color: #0000ff" %>
+        </span>
+      </p>
+    </div>
+  <% end %>
+
+
+<% end %>

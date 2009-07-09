@@ -1,0 +1,10 @@
+<table cellspacing="0" cellpadding="3" border="0" id="color_scheme_list" style="margin: 10px 0;" width="100%">
+  <% @projects.each do |project| %>
+  <tr style="background-color: <%= cycle("fff", "efefef") %>">
+    <td><%= project.name %></td>
+    <td style="text-align: right;">
+      <%= link_to "View Project", {:action => "go_to_project", :id => project.id} %>
+    </td>
+  </tr>
+  <% end %>
+</table>
