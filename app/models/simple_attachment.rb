@@ -1,10 +1,4 @@
 class SimpleAttachment < ActiveRecord::Base
-  
-  has_attachment :storage => :file_system,
-                 :path => 'public/files',
-                 :max_size => 2000.kilobytes,
-                 :thumbnails => { :thumb => '32x32>' }
-
-  validates_as_attachment
-  
+  has_attached_file :attachment, 
+                    :styles => { :thumb => '32x32>' }
 end
